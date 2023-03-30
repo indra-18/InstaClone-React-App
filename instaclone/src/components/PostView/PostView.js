@@ -4,6 +4,8 @@ import './postView.css'
 
 import heart from '../../images/heart.png';
 import share from '../../images/share.png'
+import image1 from '../../images/download.jpg'
+import { Link } from 'react-router-dom';
 
 
 
@@ -21,14 +23,17 @@ export default function PostView() {
       </div>
       <p id='location'>Bengaluru</p>
       <div id='img-container'>
-        <img src='' alt='' />
+        <img src={image1} alt='' />
       </div>
       <div id='part-2'>
         <div id='icon-container'>
-          <div>
+          <div className='isolate-container'>
+            <Link to='#'>
             <img src={heart} alt='like' />
+            </Link>
+            
           </div>
-          <div>
+          <div className='isolate-container'>
             <img src={share} alt='share' />
           </div>
         </div>
