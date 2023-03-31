@@ -1,11 +1,14 @@
 #header {
   max-width: 98%;
+  max-height: 75px;
   margin-top: 2%;
   margin-left: 5%;
   margin-right: 5%;
+  margin-bottom: 3%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  border-bottom: 2px solid green;
 }
 #header-left {
 
@@ -16,4 +19,7 @@
 #insta-header {
   padding-bottom: 2%;
   color: green;
+}
+#camera {
+  margin-top: 5px;
 }
