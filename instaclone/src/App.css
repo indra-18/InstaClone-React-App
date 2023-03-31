@@ -1,0 +1,19 @@
+#header {
+  max-width: 98%;
+  margin-top: 2%;
+  margin-left: 5%;
+  margin-right: 5%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+#header-left {
+
+  max-width: 95%;
+  display: flex;
+}
+
+#insta-header {
+  padding-bottom: 2%;
+  color: green;
+}
