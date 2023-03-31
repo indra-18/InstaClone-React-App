@@ -13,7 +13,7 @@ function Header() {
             </div>
             <h1 id='insta-header'>Instaclone</h1>
         </div>
-        <div>
+        <div id='camera'>
             <Link to='/post'>
             <img src={camera} alt={'camera button'} />
             </Link>

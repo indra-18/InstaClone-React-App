@@ -14,7 +14,6 @@ export default function PostView() {
 
   return <>
   <Header />
-  <hr />
   <div id="card-container">
     <div id='post-card'>
       <div id='part-1'>
