@@ -7,7 +7,7 @@ import PostForm from "../components/PostForm/PostForm";
 function AppRouter() {
     return <BrowserRouter>
     <Routes>
-        <Route path='/home' element={<LandingPage />} ></Route>
+        <Route path='/' element={<LandingPage />} ></Route>
         <Route path='/view' element={<PostView />} ></Route>
         <Route path='/post' element={<PostForm />} ></Route>
     </Routes>

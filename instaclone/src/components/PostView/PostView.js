@@ -23,7 +23,7 @@ export default function PostView() {
       </div>
       <p id='location'>Bengaluru</p>
       <div id='img-container'>
-        <img src={image1} alt='' />
+        <img src={image1} alt='' accept='image/*' />
       </div>
       <div id='part-2'>
         <div id='icon-container'>
@@ -38,8 +38,8 @@ export default function PostView() {
           </div>
         </div>
         <p id='date'>Date</p>
-
       </div>
+      <p id='likes-count'>0 likes</p>
       <h4 id='comment-container'>Kick start your career with a bang</h4>
     </div>
   </div>

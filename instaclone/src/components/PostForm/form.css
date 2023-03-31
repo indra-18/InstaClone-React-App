@@ -1,0 +1,23 @@
+#form-container {
+    margin: 0 auto;
+    max-width: 350px;
+    min-height: 185px;
+    border: 1px solid #ccc;
+    box-shadow: 0px 2px 2px 0px;
+}
+.main-fields {
+    width: 87%;
+    margin: 15px 15px 15px 15px;
+}
+#two-fields {
+    display: flex;
+    justify-content: space-between;
+}
+#two-fields input{
+    max-width: 38%;
+    margin: 15px;
+}
+
+#postbtn-container {
+    text-align: center;
+}
