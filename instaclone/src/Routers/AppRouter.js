@@ -9,7 +9,7 @@ function AppRouter() {
     <Routes>
         <Route path='/' element={<LandingPage />} ></Route>
         <Route path='/view' element={<PostView />} ></Route>
-        <Route path='/post' element={<PostForm />} ></Route>
+        <Route path='/new' element={<PostForm />} ></Route>
     </Routes>
     </BrowserRouter>
 }
