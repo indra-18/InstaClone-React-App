@@ -8,7 +8,7 @@ export default function PostContextProvider({children}) {
     const [posts, setPosts] = useState([])
     useEffect(() => {
         getAllPosts().then(res => {
-            setPosts(res)
+            setPosts(res.result)
             // console.log(res)
         })
     }, [])

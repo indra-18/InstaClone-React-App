@@ -21,16 +21,19 @@ export default function PostForm() {
   function captureForm(e) {
     e.preventDefault();
     // console.log(formData)
-    // const formValues = new FormData(e.target);//The code creates a new instance of FormData object, which is a JavaScript object that encapsulates the data sent in an HTTP POST request.
+    const formValues = new FormData(e.target);//The code creates a new instance of FormData object, which is a JavaScript object that encapsulates the data sent in an HTTP POST request.
     // console.log(formValues)
-    const formValues = formData
-    // formValues.append('date', new Date().toDateString())
-    // formValues.append('likes', 0)
-    // formValues.append('date', ("" + new Date().getTime()))
-    console.log(formValues)
+    // const formValues = formData
+    formValues.append('date', new Date().toDateString())
+    formValues.append('likes', 0)
+    formValues.append('id',"" + new Date().getTime())
+    // console.log(formValues)
+
     newPost(formValues).then(res => {
-      if (res.status === 200) {
       console.log(res)
+      // console.log(res.result)
+      if (res.status === "Success") {
+
       addPost(res.result);
         setFormData({
           image: null,
@@ -38,7 +41,8 @@ export default function PostForm() {
           location: '',
           description: ''
         })
-        // listNavigation('/view')
+        console.log('Post Created')
+        listNavigation('/view')
       }
       else {
         console.log('Post Data Unsuccessful')
