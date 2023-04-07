@@ -3,13 +3,13 @@ import Header from '../Header';
 import './form.css'
 
 import { newPost } from '../../services/http-services';
-import { PostContext } from '../contexts/PostContext';
+import { PostContext } from '../contexts/postContext';
 import { useNavigate } from 'react-router-dom';
 
 export default function PostForm() {
 
   const listNavigation = useNavigate()
-  const postContext = useContext(PostContext)
+  const {addPost} = useContext(PostContext)
 
   const [formData, setFormData] = useState({
     image: null,
@@ -21,22 +21,24 @@ export default function PostForm() {
   function captureForm(e) {
     e.preventDefault();
     // console.log(formData)
-    const formValues = new FormData(e.target);//The code creates a new instance of FormData object, which is a JavaScript object that encapsulates the data sent in an HTTP POST request.
+    // const formValues = new FormData(e.target);//The code creates a new instance of FormData object, which is a JavaScript object that encapsulates the data sent in an HTTP POST request.
     // console.log(formValues)
-    formValues.append('date', new Date().toDateString())
-    formValues.append('likes', 0)
-    formValues.append('date', String(new Date().getTime()))
-
+    const formValues = formData
+    // formValues.append('date', new Date().toDateString())
+    // formValues.append('likes', 0)
+    // formValues.append('date', ("" + new Date().getTime()))
+    console.log(formValues)
     newPost(formValues).then(res => {
-      if (res.status === 'Success') {
-        postContext.addPost(res.result);
+      if (res.status === 200) {
+      console.log(res)
+      addPost(res.result);
         setFormData({
           image: null,
           name: '',
           location: '',
           description: ''
         })
-        listNavigation('../PostView/PostView')
+        // listNavigation('/view')
       }
       else {
         console.log('Post Data Unsuccessful')
@@ -45,16 +47,13 @@ export default function PostForm() {
   }
 
 
-
-
-
   
   return <div id='form-parent'>
     <Header />
     <div id='form-container'>
       <form onSubmit={captureForm}>
         <div>
-          <input type='file' name="Image" placeholder='No file chosen' accept='image/*' required className='main-fields'
+          <input type='file' name="image" placeholder='No file chosen' accept='image/*' required className='main-fields'
           onChange={(e) => {setFormData(prevData => {
             return {
               ...prevData,
@@ -70,7 +69,7 @@ export default function PostForm() {
           onChange={(e) => {setFormData(prevData => {
             return {
               ...prevData,
-              author: e.target.files[0]
+              author: e.target.value
             }
           })}}
           />
@@ -78,7 +77,7 @@ export default function PostForm() {
           onChange={(e) => {setFormData(prevData => {
             return {
               ...prevData,
-              location: e.target.files[0]
+              location: e.target.value
             }
           })}}
           />
@@ -89,12 +88,12 @@ export default function PostForm() {
           onChange={(e) => {setFormData(prevData => {
             return {
               ...prevData,
-              description: e.target.files[0]
+              description: e.target.value
             }
           })}}
           />
         </div>
-        <div id='postbtn-container'>
+        <div id='postbtn-container' type='submit'>
           <button>Post</button>
         </div>
       </form>

@@ -4,13 +4,11 @@ import './postView.css'
 
 import heart from '../../images/heart.png';
 import share from '../../images/share.png';
-import image1 from '../../images/download.jpg';
 import { Link } from 'react-router-dom';
-import { PostContext } from '../contexts/PostContext';
+import { PostContext } from '../contexts/postContext';
 
 export default function PostView() {
-  const { posts } = useContext(PostContext);
-
+  const {posts} = useContext(PostContext);
   return (
     <>
       <Header />
@@ -19,15 +17,15 @@ export default function PostView() {
           <h2>No Post Available...</h2>
         ) : (
           posts.map((post) => (
-            <div id='card-container'>
-              <div id='post-card'>
+            <div id='card-container' key={post.id}>
+              <div id='post-card' >
                 <div id='part-1'>
                   <h4>{post.author}</h4>
                   <h4>...</h4>
                 </div>
                 <p id='location'>{post.location}</p>
                 <div id='img-container'>
-                  <img src={`https://instaclone-node-api.onrender.com/${post.image}`} alt='' accept='image/*' />
+                  <img src={post.image} alt='' accept='image/*' />
                 </div>
                 <div id='part-2'>
                   <div id='icon-container'>
