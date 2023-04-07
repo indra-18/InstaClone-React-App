@@ -6,7 +6,7 @@ const BASE_URL='https://instaclone-node-api.onrender.com';
 
 export function getAllPosts() {
 
-    return fetch(`${BASE_URL}/posts/view`)
+    return fetch(`${BASE_URL}/view`)
     .then(res => {
         // console.log(res.json())
        return res.json()
@@ -15,15 +15,10 @@ export function getAllPosts() {
 }
 
 export function newPost(post) {
-    return fetch(`${BASE_URL}/posts/new`,{
+    return fetch(`${BASE_URL}/new`,{
         method: 'POST',
-        body: JSON.stringify({
-            post
-          }),
-          headers: {
-            'Content-type': 'application/json; charset=UTF-8',
-          },
+        body: post
     })
-    .then(res => res)
+    .then(res => res.json())
     .catch(err => console.log(`Error occured while Posting: ${err.message}`));
 }

@@ -25,7 +25,7 @@ export default function PostView() {
                 </div>
                 <p id='location'>{post.location}</p>
                 <div id='img-container'>
-                  <img src={post.image} alt='' accept='image/*' />
+                  <img src={`https://instaclone-node-api.onrender.com/${post.image}`} alt='' accept='image/*' />
                 </div>
                 <div id='part-2'>
                   <div id='icon-container'>
@@ -41,7 +41,7 @@ export default function PostView() {
                   <p id='date'>{post.date}</p>
                 </div>
                 <p id='likes-count'>{post.likes} likes</p>
-                <h4 id='comment-container'>{post.comment}</h4>
+                <h4 id='comment-container'>{post.description}</h4>
               </div>
             </div>
           ))
