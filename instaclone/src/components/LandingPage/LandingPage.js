@@ -8,7 +8,7 @@ export default function LandingPage() {
     <div className='lens-container'>
       <img src={lens} alt='lens' />
     </div>
-    <div>
+    <div id='right-container'>
       <h2 id='head' >10x Team 04</h2>
       <div id='btn-container'>
         <Link to='/view' >Enter</Link>
